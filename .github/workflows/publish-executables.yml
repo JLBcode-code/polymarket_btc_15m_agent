@@ -30,6 +30,11 @@ jobs:
             exit 1
           fi
 
+      - name: Ensure target release exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release view "${{ inputs.tag }}" --repo "${{ github.repository }}" > /dev/null
+
       - name: Upload files to release
         uses: softprops/action-gh-release@v2
         with:
