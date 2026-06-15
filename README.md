@@ -20,13 +20,13 @@
 ## Observed Model Performance
 
 <div align="center">
-  <img src="assets/model-win-rate.svg" alt="Observed model win-rate comparison: Claude 90%, Gemini 75%" width="100%">
+  <img src="assets/model-win-rate.svg" alt="Observed model performance: Claude 90% win rate and +30% net return; Gemini 75% win rate and +75% net return" width="100%">
 </div>
 
-| Model | Observed directional win rate | Status |
-|---|---:|---|
-| **Claude** | **90%** | Current Claude-compatible decision path |
-| **Gemini** | **75%** | Comparative observation; no native adapter in this release |
+| Model | Observed win rate | Observed net return | Status |
+|---|---:|---:|---|
+| **Claude** | **90%** | **+30%** | Current Claude-compatible decision path |
+| **Gemini** | **75%** | **+75%** | Comparative observation; no native adapter in this release |
 
 > The figures above are user-provided observations. Dataset, sample size, market
 > conditions, fees and methodology have not been independently verified. They
