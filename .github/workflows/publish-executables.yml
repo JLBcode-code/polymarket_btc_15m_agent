@@ -25,7 +25,7 @@ jobs:
             exit 1
           fi
 
-          if ! find releases -maxdepth 1 -type f ! -name ".gitkeep" | grep -q .; then
+          if ! find releases -maxdepth 1 -type f ! -name ".*" | grep -q .; then
             echo "no executable files found in releases directory"
             exit 1
           fi
@@ -33,7 +33,11 @@ jobs:
       - name: Ensure target release exists
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release view "${{ inputs.tag }}" --repo "${{ github.repository }}" > /dev/null
+        run: |
+          if ! gh release view "${{ inputs.tag }}" --repo "${{ github.repository }}" > /dev/null; then
+            echo "release '${{ inputs.tag }}' does not exist; create it first"
+            exit 1
+          fi
 
       - name: Upload files to release
         uses: softprops/action-gh-release@v2
